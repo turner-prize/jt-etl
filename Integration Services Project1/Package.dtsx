@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{8D193096-4D25-47DD-B4D9-EFEB5E2357E5}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{C7FA5604-758B-4F50-ADAF-8C80712E2E41}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -79,12 +79,7 @@
       DTS:ObjectName="turnerprize.database.windows.net.DanTest.turner_prize1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=turnerprize.database.windows.net;User ID=turner_prize;Initial Catalog=DanTest;Persist Security Info=True;Application Name=SSIS-Package-{791C660E-635E-4543-8DEF-7CAEF2927ADE}turnerprize.database.windows.net.DanTest.turner_prize1;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmGSuTKfDykujgn0oI+ULmwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABi8S231AqnqvLcUXvj7vZJ229u0gE/ZCX4nOuqfAzepgAAAAAOgAAAAAIAACAAAAD/uKt9ex5UbR+KFPO0itUCqebcO9TSHSe8vJ49zs+giSAAAAABrFBF1pQAxURd1b4U6JBNF1yGOATwL37sU0/QsSbGw0AAAAAwyCv+gNsjOIOTC8Qsk/HfgQT5UxZDrbvo93Jnq3xsiOKTyZeDt+6QY3cH4SlypNMxxKZt2GFvkugKwI8UjZO/</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=turnerprize.database.windows.net;User ID=turner_prize;Initial Catalog=DanTest;Persist Security Info=True;Application Name=SSIS-Package-{791C660E-635E-4543-8DEF-7CAEF2927ADE}turnerprize.database.windows.net.DanTest.turner_prize1;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -195,7 +190,7 @@
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="File System Task"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -253,7 +248,7 @@
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete CSV"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -678,7 +673,7 @@
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute Process Task - Extract Zip Folder"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="Arguments">"e "+ @[User::fName]</DTS:PropertyExpression>
@@ -700,6 +695,18 @@
           DTS:ValueIndex="0"
           DTS:VariableName="User::fName" />
       </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Not an XML task, just a check that the git push and pull is all working!"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{35CFB9BD-F49C-4637-A6E5-ACA7BA99120A}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Not an XML task, just a check that the git push and pull is all working!"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData />
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -874,6 +881,10 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="410,42"
+          Id="Package\Not an XML task, just a check that the git push and pull is all working!"
+          TopLeft="371,484" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
