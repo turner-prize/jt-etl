@@ -1,0 +1,929 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/17/2018 3:46:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="COMPY-386"
+  DTS:CreatorName="COMPY-386\Dan"
+  DTS:DTSID="{6C9F6A41-6D60-4FF3-B561-8D3C247A2024}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{8D193096-4D25-47DD-B4D9-EFEB5E2357E5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[csvFileConnection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{38CE1183-19CC-4AFA-A526-4F3DEC578E4A}"
+      DTS:ObjectName="csvFileConnection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\Dan\Desktop\SSIS\Destination\test-file-1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="a"
+              DTS:DTSID="{3D51D3B5-68C3-4C04-9A10-C17AB27900A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="b"
+              DTS:DTSID="{203A92A9-DAFD-4785-8FCC-762D882700DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c"
+              DTS:DTSID="{7B5F173F-3373-425A-A2BD-C985CFFC17D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="d"
+              DTS:DTSID="{DAAE9A8A-B931-446A-82AF-A66D92409B46}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[turnerprize.database.windows.net.DanTest.turner_prize1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{791C660E-635E-4543-8DEF-7CAEF2927ADE}"
+      DTS:ObjectName="turnerprize.database.windows.net.DanTest.turner_prize1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=turnerprize.database.windows.net;User ID=turner_prize;Initial Catalog=DanTest;Persist Security Info=True;Application Name=SSIS-Package-{791C660E-635E-4543-8DEF-7CAEF2927ADE}turnerprize.database.windows.net.DanTest.turner_prize1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmGSuTKfDykujgn0oI+ULmwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABi8S231AqnqvLcUXvj7vZJ229u0gE/ZCX4nOuqfAzepgAAAAAOgAAAAAIAACAAAAD/uKt9ex5UbR+KFPO0itUCqebcO9TSHSe8vJ49zs+giSAAAAABrFBF1pQAxURd1b4U6JBNF1yGOATwL37sU0/QsSbGw0AAAAAwyCv+gNsjOIOTC8Qsk/HfgQT5UxZDrbvo93Jnq3xsiOKTyZeDt+6QY3cH4SlypNMxxKZt2GFvkugKwI8UjZO/</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6115F98F-7053-4601-8A02-F947364CDC0B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::ArchiveFolder]+&quot;\\&quot;+ @[User::fName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Dan\Desktop\SSIS\zipArchive\0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{004F1A94-A433-4968-9D24-DA5D6F8E04DD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ArchiveFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Dan\Desktop\SSIS\zipArchive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EF128D55-B1C5-4D9A-925D-B1CE8AE60C81}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Executable7zip">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Program Files\7-Zip\7z.exe</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0893BE1F-9B02-4B42-B433-69A095FA2706}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="fName">
+      <DTS:VariableValue
+        DTS:DataType="8">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{01F36794-CD98-45E0-8D3B-491A1B3B6171}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadingFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Dan\Desktop\SSIS\Destination</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ABF2D2FE-1CA5-415E-94CC-F05ABFFE2B70}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ZipFileFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Dan\Desktop\SSIS\Test</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{78B2CACE-5F1E-44CE-BE1C-C74E070B5BF3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::ZipFileFolder]+&quot;\\&quot; +@[User::fName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ZipFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Dan\Desktop\SSIS\Test\0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{8949C30A-00D3-4FAD-966C-93726635DEF9}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{83EF298C-EF77-4133-A98C-C2A71F1D0C91}"
+        DTS:ObjectName="{83EF298C-EF77-4133-A98C-C2A71F1D0C91}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::ZipFileFolder]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Dan\Desktop\SSIS\Test" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{98E0AE6B-110C-4A22-B01C-E85EC33217D2}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::ZipFilePath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::ArchiveFilePath"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{CC0978B2-A2D4-41E3-8C5C-823DB11AA372}"
+          DTS:ObjectName="{CC0978B2-A2D4-41E3-8C5C-823DB11AA372}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container - Delete unzipped files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{e4b9b98e-fb34-4b99-8e64-3d31abed7b3a}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container - Delete unzipped files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{362447f8-c94c-4f21-98f0-fe903f3f1049}"
+        DTS:ObjectName="{3CCAF85C-FD0C-4495-8A75-E625618B438A}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::LoadingFolder]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Dan\Desktop\SSIS\Destination" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Delete unzipped files\Delete CSV"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{4CB467B8-4039-4EA1-900F-6193A4014FD3}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete CSV"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="User::fName"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{bc0caa80-92dc-4378-ac31-7f41d1a579a1}"
+          DTS:ObjectName="{B3CDE014-2F52-4CE2-8452-FD5B4D3EDD25}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container - Loop through unzipped files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{B17C7E19-E26A-4512-BEE4-72F5E8148DAD}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container - Loop through unzipped files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{3CCAF85C-FD0C-4495-8A75-E625618B438A}"
+        DTS:ObjectName="{3CCAF85C-FD0C-4495-8A75-E625618B438A}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::LoadingFolder]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Dan\Desktop\SSIS\Destination" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{194CB23E-1787-46A9-B38D-5C8B86EACE27}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Upload CSV to Database"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"zip"."uploadedfiles"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[turnerprize.database.windows.net.DanTest.turner_prize1]"
+                      connectionManagerRefId="Package.ConnectionManagers[turnerprize.database.windows.net.DanTest.turner_prize1]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[a]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="a"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column1]"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[a]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[b]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="b"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column2]"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[b]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[c]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="c"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column3]"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[c]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[d]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="d"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column4]"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[d]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column1]"
+                          dataType="i4"
+                          name="column1" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column2]"
+                          dataType="i4"
+                          name="column2" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column3]"
+                          dataType="i4"
+                          name="column3" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[column4]"
+                          dataType="i4"
+                          name="column4" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="2057"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[csvFileConnection]"
+                      connectionManagerRefId="Package.ConnectionManagers[csvFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[a]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[a]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[a]"
+                          name="a"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[b]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[b]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[b]"
+                          name="b"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[c]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[c]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[c]"
+                          name="c"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[d]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[d]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].Columns[d]"
+                          name="d"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[a]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="a" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[b]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="b" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[c]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="c" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[d]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="d" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{B3CDE014-2F52-4CE2-8452-FD5B4D3EDD25}"
+          DTS:ObjectName="{B3CDE014-2F52-4CE2-8452-FD5B4D3EDD25}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container - Unzip all Files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{B901CA0F-0A6F-4E6F-A15F-B4C64EC2DF70}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container - Unzip all Files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{9184FD1D-DDFA-422F-86AA-FE5EF0FBC570}"
+        DTS:ObjectName="{9184FD1D-DDFA-422F-86AA-FE5EF0FBC570}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::ZipFileFolder]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Dan\Desktop\SSIS\Test" />
+            <FEFEProperty
+              FileSpec="*.zip" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container - Unzip all Files\Execute Process Task - Extract Zip Folder"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{3132EC8D-09F0-4CBD-AFCE-915AE37003A4}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute Process Task - Extract Zip Folder"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">"e "+ @[User::fName]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Executable">@[User::Executable7zip]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\Program Files\7-Zip\7z.exe"
+              Arguments="e 0"
+              WorkingDirectory="C:\Users\Dan\Desktop\SSIS\Destination" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{418A5528-8117-428C-84F4-DE787643C71A}"
+          DTS:ObjectName="{418A5528-8117-428C-84F4-DE787643C71A}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::fName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4A787CEA-1D2B-4E50-BBA4-5C3F8AB30E6C}"
+      DTS:From="Package\Foreach Loop Container - Unzip all Files"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container - Loop through unzipped files" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{334F36FA-11E2-4044-A671-34C84C2D4188}"
+      DTS:From="Package\Foreach Loop Container - Loop through unzipped files"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Foreach Loop Container - Delete unzipped files" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{08AFBEEE-3E46-418F-B0BC-478894D6FC80}"
+      DTS:From="Package\Foreach Loop Container - Delete unzipped files"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Foreach Loop Container\File System Task"
+          TopLeft="80.2222222222223,23.2222222222222" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="345,111"
+          Size="345,154"
+          Id="Package\Foreach Loop Container"
+          TopLeft="898.222222222222,287.777777777778" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Foreach Loop Container - Delete unzipped files\Delete CSV"
+          TopLeft="80,40" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="355,137"
+          Size="355,180"
+          Id="Package\Foreach Loop Container - Delete unzipped files"
+          TopLeft="893,67.444444444444" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database"
+          TopLeft="26,21" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="245,221"
+          Size="245,264"
+          Id="Package\Foreach Loop Container - Loop through unzipped files"
+          TopLeft="565,92" />
+        <NodeLayout
+          Size="273,42"
+          Id="Package\Foreach Loop Container - Unzip all Files\Execute Process Task - Extract Zip Folder"
+          TopLeft="26,28" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="340,125"
+          Size="340,168"
+          Id="Package\Foreach Loop Container - Unzip all Files"
+          TopLeft="140.5,74" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="480.5,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.5,66"
+              Start="0,0"
+              End="77,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.25,0"
+                    Point2="42.25,0"
+                    Point3="42.25,4" />
+                  <mssgle:LineSegment
+                    End="42.25,62" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.25,62"
+                    Point2="42.25,66"
+                    Point3="46.25,66" />
+                  <mssgle:LineSegment
+                    End="77,66" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="810,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83,-66.555555555556"
+              Start="0,0"
+              End="75.5,-66.555555555556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,0"
+                    Point2="41.5,0"
+                    Point3="41.5,-4" />
+                  <mssgle:LineSegment
+                    End="41.5,-62.555555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.5,-62.555555555556"
+                    Point2="41.5,-66.555555555556"
+                    Point3="45.5,-66.555555555556" />
+                  <mssgle:LineSegment
+                    End="75.5,-66.555555555556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1070.61111111111,247.444444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.333333333334"
+              Start="0,0"
+              End="0,32.833333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.833333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination"
+          TopLeft="153,200" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\Flat File Source"
+          TopLeft="161,96" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database.Paths[Flat File Source Output]"
+          TopLeft="239.5,138">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
