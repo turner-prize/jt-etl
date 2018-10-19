@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{C7FA5604-758B-4F50-ADAF-8C80712E2E41}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{C8C4A4FF-9C60-4213-B818-A7B245A08246}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -75,11 +75,16 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[turnerprize.database.windows.net.DanTest.turner_prize1]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      DTS:DTSID="{791C660E-635E-4543-8DEF-7CAEF2927ADE}"
+      DTS:DTSID="{6AD10751-67BA-40F5-87A7-91C31426F3DB}"
       DTS:ObjectName="turnerprize.database.windows.net.DanTest.turner_prize1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=turnerprize.database.windows.net;User ID=turner_prize;Initial Catalog=DanTest;Persist Security Info=True;Application Name=SSIS-Package-{791C660E-635E-4543-8DEF-7CAEF2927ADE}turnerprize.database.windows.net.DanTest.turner_prize1;" />
+          DTS:ConnectionString="Data Source=turnerprize.database.windows.net;User ID=turner_prize;Initial Catalog=DanTest;Application Name=SSIS-Package-{6AD10751-67BA-40F5-87A7-91C31426F3DB}turnerprize.database.windows.net.DanTest.turner_prize1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmGSuTKfDykujgn0oI+ULmwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAADOlVqJ6fDunNb4v2NoDBmyMphRljNvQ3EuzJzEXNfNQAAAAAOgAAAAAIAACAAAAC46xbPLno9X1juyORdPG+12vK/vdOvQSKKRc9MWyM1GCAAAABBcfKqsMybla81QMKUEQLpm8Xngylot158qH482ZDwtUAAAACq+KhHQrWY8cg2R6x5hXjMEpnB4GcMHOsHIcgFVxIM+Y87lFP+Dh4V0/hNbV7RRgFod3AEPWIWDXgaEFXH+tXp</DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -190,7 +195,7 @@
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="File System Task"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -248,7 +253,7 @@
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete CSV"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
@@ -673,7 +678,7 @@
           DTS:ExecutableType="Microsoft.ExecuteProcess"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute Process Task - Extract Zip Folder"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="Arguments">"e "+ @[User::fName]</DTS:PropertyExpression>
@@ -695,18 +700,6 @@
           DTS:ValueIndex="0"
           DTS:VariableName="User::fName" />
       </DTS:ForEachVariableMappings>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Not an XML task, just a check that the git push and pull is all working!"
-      DTS:CreationName="Microsoft.XMLTask"
-      DTS:Description="XML Task"
-      DTS:DTSID="{35CFB9BD-F49C-4637-A6E5-ACA7BA99120A}"
-      DTS:ExecutableType="Microsoft.XMLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Not an XML task, just a check that the git push and pull is all working!"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData />
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -881,10 +874,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="410,42"
-          Id="Package\Not an XML task, just a check that the git push and pull is all working!"
-          TopLeft="371,484" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -892,7 +881,7 @@
     design-time-name="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="179,42"
           Id="Package\Foreach Loop Container - Loop through unzipped files\Upload CSV to Database\ADO NET Destination"
@@ -920,9 +909,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
